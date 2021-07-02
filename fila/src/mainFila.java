@@ -2,16 +2,20 @@ public class mainFila {
     public static void main(String[] args) {
         Fila fl = new Fila();
 
-        fl.enfileirar("disgrasa");
-        fl.enfileirar("bosta");
-        fl.enfileirar("askaposka");
-        fl.enfileirar("porra");
+        fl.enqueue("a");
+        fl.enqueue("b");
+        fl.enqueue("c");
+        fl.enqueue("d");
+        fl.enqueue("e");
+        fl.enqueue("f");
+        fl.enqueue("g");
+        fl.enqueue("h");
+        fl.enqueue("i");
 
-        while (!fl.filaVazia()){
-            System.out.println(fl.desenfileirar());
+
+
+        while (!fl.filaVazia()) {
+            System.out.println(fl.dequeue());
         }
-
-
-
     }
 }
