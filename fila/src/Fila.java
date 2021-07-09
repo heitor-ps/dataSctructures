@@ -1,50 +1,41 @@
 public class Fila {
-    public Object[] fila;
-    public int posicaoFila;
-    public int tamanhoFila;
+    int[] fila;
+    int end;
+    public final int size;
 
-    //CÓDIGO AINDA NÃO TÁ RODANDO
     public Fila(){
-        this.fila = new Object[10];
-        this.posicaoFila = fila.length-1;
-        this.tamanhoFila = fila.length-1;
-
+        this.fila = new int[10];
+        this.end = 0;
+        this.size = fila.length;
     }
 
-    public boolean filaVazia(){
-        if (this.tamanhoFila){
-            return true;
-        }else return false;
+    void enqueue(int element){
+        if (end<size-1){
+            this.fila[end] = element;
+            end++;
+        }else System.out.println("Impossible to insert element "+element+": Overflow");
     }
 
-    public void enqueue(Object valor){
-        if (this.tamanhoFila <= fila.length-1 && this.tamanhoFila >= 0){
-            this.fila[this.tamanhoFila--] = valor;
-        }else System.out.println("Impossible insertion (overflow)");
+    void dequeue(){
+        for (int i = 0; i < size - 1;i++)
+            System.out.print(this.fila[i] + " ");
+        System.out.println();
     }
 
-    public Object dequeue(){
-        if (filaVazia()){
-            return null;
-        }
-        else return this.fila[this.posicaoFila--];
-    }
     public static void main(String[] args) {
         Fila fl = new Fila();
-
-        fl.enqueue("a");
-        fl.enqueue("b");
-        fl.enqueue("c");
-        fl.enqueue("d");
-        fl.enqueue("e");
-        fl.enqueue("f");
-        fl.enqueue("g");
-        fl.enqueue("h");
-        fl.enqueue("i");
-
-        while (!fl.filaVazia()) {
-            System.out.println(fl.dequeue());
-        }
+        fl.enqueue(1);
+        fl.enqueue(2);
+        fl.enqueue(3);
+        fl.enqueue(4);
+        fl.enqueue(5);
+        fl.enqueue(6);
+        fl.enqueue(7);
+        fl.enqueue(9);
+        fl.enqueue(10);
+        fl.enqueue(11);
+        fl.enqueue(12);
+        fl.dequeue();
     }
 }
-//CÓDIGO AINDA NÃO TÁ RODANDO
+
