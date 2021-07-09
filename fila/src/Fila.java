@@ -1,15 +1,16 @@
 public class Fila {
-    int[] fila;
-    int end;
+    Object[] fila;
+    int end, start;
     public final int size;
 
     public Fila(){
-        this.fila = new int[10];
+        this.fila = new Object[10];
+        this.start = 0;
         this.end = 0;
         this.size = fila.length;
     }
 
-    void enqueue(int element){
+    void enqueue(Object element){
         if (end<size-1){
             this.fila[end] = element;
             end++;
@@ -17,25 +18,51 @@ public class Fila {
     }
 
     void dequeue(){
-        for (int i = 0; i < size - 1;i++)
-            System.out.print(this.fila[i] + " ");
-        System.out.println();
+        if (start==end){
+            System.out.println("\nQueue is empty");
+        }else{
+            for (int i = 0; i < end; i++){
+                this.fila[i] = this.fila[i+1];
+            }
+        }
+        if (end<size){
+            this.fila[end] = null;
+        }
+        end--;
+    }
+
+    void showQueue(){
+        if (start == end){
+            System.out.println("\nQueue is empty");
+        }else{
+            int i;
+            for (i = start; i < end; i++){
+                System.out.print(fila[i]+" ");
+            }
+            System.out.println();
+        }
+    }
+
+    void printFront(){
+        if (start == end){
+            System.out.println("\nQueue is empty");
+        }else{
+            System.out.print("\nFirst element is: "+fila[0]);
+        }
     }
 
     public static void main(String[] args) {
         Fila fl = new Fila();
-        fl.enqueue(1);
+        fl.enqueue("a");
         fl.enqueue(2);
         fl.enqueue(3);
         fl.enqueue(4);
-        fl.enqueue(5);
-        fl.enqueue(6);
-        fl.enqueue(7);
-        fl.enqueue(9);
-        fl.enqueue(10);
-        fl.enqueue(11);
-        fl.enqueue(12);
+        fl.showQueue();
         fl.dequeue();
+        fl.showQueue();
+        fl.dequeue();
+        fl.showQueue();
+        fl.enqueue("k");
+        fl.showQueue();
     }
 }
-
