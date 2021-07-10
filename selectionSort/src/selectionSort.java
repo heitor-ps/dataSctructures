@@ -1,7 +1,11 @@
 public class selectionSort {
+    void swap(int[] vector, int i, int j){
+        int aux = vector[i];
+        vector[i] = vector[j];
+        vector[j] = aux;
+    }
     void sorter(int[] vector){
         int size = vector.length;
-
         for (int i = 0; i < size-1; i++){
             int indexTarget = i;
 
@@ -10,27 +14,25 @@ public class selectionSort {
                     indexTarget = j;
                 }
             }
-            int aux = vector[indexTarget];
-            vector[indexTarget] = vector[i];
-            vector[i] = aux;
+            swap(vector,indexTarget,i);
         }
 
     }
     void printer(int[] vector){
         int size = vector.length;
-
         for(int i = 0; i < size;i++){
             System.out.print(vector[i]+" ");
         }
         System.out.println();
-
     }
 
     public static void main(String[] args) {
-        int[] vector = {64,25,12,22,11};
-
         selectionSort ss = new selectionSort();
+        int[] vector = {64,25,12,22,11};
+        System.out.print("\nReceived array: ");
+        ss.printer(vector);
         ss.sorter(vector);
+        System.out.print("\nResult: ");
         ss.printer(vector);
     }
 }
