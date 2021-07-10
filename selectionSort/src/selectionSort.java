@@ -1,42 +1,36 @@
-import java.util.Arrays;
-
 public class selectionSort {
-    void selection(int[] vector){
-        int n = vector.length;
-        int i=0, j=0;
-        int[] sorted = new int[n];
+    void sorter(int[] vector){
+        int size = vector.length;
 
-        while (j<n && i<n-1){
-            if(vector[i]<vector[i+1]){
-                sorted[j] = vector[i];
-                i++;
-                j++;
-            }else {
-                sorted[j] = vector[i+1];
-                i++;
-                j++;
+        for (int i = 0; i < size-1; i++){
+            int indexTarget = i;
+
+            for (int j = i + 1; j < size;j++){
+                if (vector[j] < vector[indexTarget]){
+                    indexTarget = j;
+                }
             }
-       }
-
-        for (int k = 0; k<n-1;k++){
-            vector[k] = sorted[k];
+            int aux = vector[indexTarget];
+            vector[indexTarget] = vector[i];
+            vector[i] = aux;
         }
 
     }
-
     void printer(int[] vector){
-        int n = vector.length;
-        for (int i = 0; i < n;i++){
-            System.out.print(vector[i] + " ");
+        int size = vector.length;
+
+        for(int i = 0; i < size;i++){
+            System.out.print(vector[i]+" ");
         }
         System.out.println();
+
     }
 
     public static void main(String[] args) {
-        int[] arr = {3,4,1,6,8};
-        selectionSort ss = new selectionSort();
+        int[] vector = {64,25,12,22,11};
 
-        ss.selection(arr);
-        ss.printer(arr);
+        selectionSort ss = new selectionSort();
+        ss.sorter(vector);
+        ss.printer(vector);
     }
 }
