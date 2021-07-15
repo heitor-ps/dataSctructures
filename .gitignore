@@ -1,3 +1,7 @@
 */fila
 */quickSort/out
 */binarySearch/out
+*.xml
+*.iml
+*.class
+.idea/
