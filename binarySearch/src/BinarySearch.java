@@ -1,6 +1,14 @@
 import java.util.Random;
 public class BinarySearch {
-    int[] rndArray;
+    private int[] rndArray;
+
+    public int[] getRndArray(){
+        return rndArray;
+    }
+
+    public void setRndArray(int[] rndArray) {
+        this.rndArray = rndArray;
+    }
 
     public int randomizer(){
         Random rd = new Random();

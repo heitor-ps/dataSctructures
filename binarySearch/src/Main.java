@@ -5,17 +5,18 @@ public class Main {
         BinarySearch bs = new BinarySearch();
         int result, target;
 
+
         System.out.println("Insert the number os elements for the array");
         bs.arrayGenerator(sc.nextInt());
         System.out.print("Generated array: ");
-        bs.printer(bs.rndArray);
+        bs.printer(bs.getRndArray());
         System.out.print("Now sorting...\n");
-        bs.sorter(bs.rndArray);
+        bs.sorter(bs.getRndArray());
         System.out.print("Sorted array: ");
-        bs.printer(bs.rndArray);
+        bs.printer(bs.getRndArray());
         System.out.println("Enter the value for the search:");
         target = sc.nextInt();
-        result = bs.binarySearch(bs.rndArray, 0, bs.rndArray.length-1,target);
+        result = bs.binarySearch(bs.getRndArray(), 0, bs.getRndArray().length-1, target);
         if (result == -1){
             System.out.println("Cant find the element");
         } else {
