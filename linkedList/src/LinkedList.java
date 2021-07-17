@@ -2,10 +2,7 @@ public class LinkedList {
     Node head;
     //basic operations
     public void insertElementAtEnd(int data){
-        if (head == null) {
-            head = new Node(data);
-            return;
-        }
+        isEmpty();
        Node current = head;
         while (current.next != null){
             current = current.next;
